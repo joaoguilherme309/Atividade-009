@@ -5,4 +5,4 @@ class Departamento:
         self.professores = []
 
     def adicionar_professor(self, professor):
-        self.professores += [professor]
+        self.professores.append(professor)

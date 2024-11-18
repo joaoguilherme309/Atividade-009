@@ -1,42 +1,28 @@
-from universidade import Universidade
-from departamento import Departamento
-from professor import Professor
-from disciplina import Disciplina
+from Universidade import Universidade
+from Departamento import Departamento
+from Professor import Professor
+from Disciplina import Disciplina
 
 
 def main():
-    # Criar universidade
-    universidade = Universidade("Universidade Exemplo")
+    universidade = Universidade("UEA","uea.edu@gmail.com",929939495)
 
-    # Criar departamentos
-    departamento1 = Departamento("Ciências Exatas")
-    departamento2 = Departamento("Ciências Humanas")
 
-    universidade.adicionar_departamento(departamento1)
-    universidade.adicionar_departamento(departamento2)
+    nomeDepartamento = input("Digite o nome do departamento: ")
+    quatidadeProfessores = int(input("Digite a quantidade de professores do departamento: "))
+    universidade.adicionar_departamento(nomeDepartamento, quatidadeProfessores)
 
-    # Criar professores
-    professor1 = Professor("Prof. João")
-    professor2 = Professor("Prof. Maria")
+    departamento = universidade.departamentos[0]
 
-    departamento1.adicionar_professor(professor1)
-    departamento2.adicionar_professor(professor2)
+    nomeProfessor = input("Digite o nome do professor: ").upper()
+    idadeProfessor = int(input("Digite a idade do professor: "))
+    emailProfessor = input("Digite o email do professor: ")
+    telefoneProfessor = int(input("Digite o telefone do professor: "))
+    professor = Professor(nomeProfessor, idadeProfessor, emailProfessor, telefoneProfessor)
 
-    # Criar disciplinas
-    disciplina1 = Disciplina("Matemática")
-    disciplina2 = Disciplina("História")
+    departamento.adicionar_professor(professor)
 
-    professor1.adicionar_disciplina(disciplina1)
-    professor2.adicionar_disciplina(disciplina2)
-
-    # Exibir estrutura
-    print(universidade)
-    for departamento in universidade.departamentos:
-        print(departamento)
-        for professor in departamento.professores:
-            print(professor)
-            for disciplina in professor.disciplinas:
-                print(disciplina)
+    print(departamento.professores[0])
 
 
 if __name__ == "__main__":

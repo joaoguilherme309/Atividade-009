@@ -1,15 +1,12 @@
+from Departamento import Departamento
+
+
 class Universidade:
-    def __init__(self, nome):
+    def __init__(self, nome, email, telefone):
         self.nome = nome
+        self.email = email
+        self.telefone = telefone
         self.departamentos = []
 
-    def adicionar_departamento(self, departamento):
-        if len(self.departamentos) < 5:
-            self.departamentos.append(departamento)
-        else:
-            print("Não é possível adicionar mais de 5 departamentos.")
-
-    def __str__(self):
-        departamentos_nomes = [d.nome for d in self.departamentos]
-        return f"Universidade: {self.nome}, Departamentos: {departamentos_nomes}"
-
+    def adicionar_departamento(self, nome, qtdprofessores):
+        self.departamentos.append(Departamento(nome, qtdprofessores))
