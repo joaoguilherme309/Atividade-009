@@ -3,26 +3,51 @@ from Professor import Professor
 
 
 def main():
-    universidade = Universidade("UEA","uea.edu@gmail.com",929939495)
+    metodo = input("Digite o que você quer deletar: ")
 
+    if metodo == "nada" or metodo != "universidade":
+        universidade = Universidade("UEA","uea.edu@gmail.com",929939495)
+    elif metodo == "universidade":
+        try:
+            universidade.motrar_universidade()
+        except:
+            print("Universidade foi removida")
+            pass
 
-    nomeDepartamento = input("Digite o nome do departamento: ")
-    quatidadeProfessores = int(input("Digite a quantidade de professores do departamento: "))
-    universidade.adicionar_departamento(nomeDepartamento, quatidadeProfessores)
+    if metodo == "nada" or metodo != "departamento" :
+        nomeDepartamento = input("Digite o nome do departamento: ")
+        quatidadeProfessores = int(input("Digite a quantidade de professores do departamento: "))
+        universidade.adicionar_departamento(nomeDepartamento, quatidadeProfessores)
+        departamento = universidade.departamentos[0]
+    elif metodo == "departamento":
+        try:
+            print(departamento.nomeDepartamento)
+        except:
+            print("Departamento foi removido")
+            pass
 
-    departamento = universidade.departamentos[0]
+    if metodo == "nada" or metodo != "professor":
+        nomeProfessor = input("Digite o nome do professor: ").upper()
+        idadeProfessor = int(input("Digite a idade do professor: "))
+        emailProfessor = input("Digite o email do professor: ")
+        telefoneProfessor = int(input("Digite o telefone do professor: "))
+        professor = Professor(nomeProfessor, idadeProfessor, emailProfessor, telefoneProfessor)
+        professor.set_disciplina(input("Digite o nome da disciplina ministrada: "))
+        if metodo != "departamento":
+            departamento.adicionar_professor(professor)
+        elif metodo == "departamento":
+            professor.lista_professores()
+    elif metodo == "professor":
+        try:
+            professor.lista_professores()
+        except:
+            print("Professor foi removido")
+            pass
 
-    nomeProfessor = input("Digite o nome do professor: ").upper()
-    idadeProfessor = int(input("Digite a idade do professor: "))
-    emailProfessor = input("Digite o email do professor: ")
-    telefoneProfessor = int(input("Digite o telefone do professor: "))
-    professor = Professor(nomeProfessor, idadeProfessor, emailProfessor, telefoneProfessor)
-    professor.set_disciplina(input("Digite o nome da disciplina ministrada: "))
-    departamento.adicionar_professor(professor)
-
+    universidade.motrar_universidade()
+    if metodo != "departamento":
+        departamento.listar_professores()
     universidade.listar_departamentos()
-    departamento.listar_professores()
-
 
 if __name__ == "__main__":
     main()

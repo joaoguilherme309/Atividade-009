@@ -8,7 +8,7 @@ class Professor:
         self.disciplina = None
 
     def lista_professores(self):
-        print(f"Professor(nome={self.__nome}, idade={self.__idade}, email={self.__email}, telefone={self.__telefone})")
+        print(f"Professor(nome={self.__nome}, idade={self.__idade}, email={self.__email}, telefone={self.__telefone}, disciplina={self.disciplina})")
 
     def set_disciplina(self, disciplina ):
         self.disciplina = disciplina
