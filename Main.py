@@ -1,6 +1,5 @@
 from Universidade import Universidade
 from Professor import Professor
-from Disciplina import Disciplina
 
 
 def main():

@@ -5,8 +5,8 @@ from Professor import Professor
 class Departamento:
 
     def __init__(self, nome, qtdprofessores):
-        self.nomeDepartamento = nome
-        self.quatidadeProfessores = qtdprofessores
+        self.__nomeDepartamento = nome
+        self.__quatidadeProfessores = qtdprofessores
         self.professores = []
 
     def adicionar_professor(self, professor: Type[Professor]):
