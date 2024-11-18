@@ -1,16 +1,17 @@
 
 class Professor:
     def __init__(self, nome, idade, email, telefone):
-        self.nome = nome
-        self.idade = idade
-        self.email = email
-        self.telefone = telefone
+        self.__nome = nome
+        self.__idade = idade
+        self.__email = email
+        self.__telefone = telefone
+        self.disciplina = None
 
-    def __str__(self) :
-        return f"Professor(nome={self.nome}, idade={self.idade}, email={self.email}, telefone={self.telefone})"
+    def lista_professores(self):
+        print(f"Professor(nome={self.__nome}, idade={self.__idade}, email={self.__email}, telefone={self.__telefone})")
 
+    def set_disciplina(self, disciplina ):
+        self.disciplina = disciplina
 
-
-
-
-
+    def get_disciplina(self):
+        return self.disciplina, print(f"Disciplina ministrada:{self.disciplina}")

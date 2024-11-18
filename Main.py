@@ -1,5 +1,4 @@
 from Universidade import Universidade
-from Departamento import Departamento
 from Professor import Professor
 from Disciplina import Disciplina
 
@@ -19,10 +18,11 @@ def main():
     emailProfessor = input("Digite o email do professor: ")
     telefoneProfessor = int(input("Digite o telefone do professor: "))
     professor = Professor(nomeProfessor, idadeProfessor, emailProfessor, telefoneProfessor)
-
+    professor.set_disciplina(input("Digite o nome da disciplina ministrada: "))
     departamento.adicionar_professor(professor)
 
-    print(departamento.professores[0])
+    universidade.listar_departamentos()
+    departamento.listar_professores()
 
 
 if __name__ == "__main__":
